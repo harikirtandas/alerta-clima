@@ -1,17 +1,17 @@
 # 🌦️ AlertaClima
 
-Una app de línea de comandos desarrollada en Python que permite consultar las coordenadas geográficas de una ciudad ingresada por el usuario, con el objetivo de mostrar posibles alertas climáticas de la zona (en desarrollo).
+Aplicación CLI en Python que permite consultar el clima actual de cualquier ciudad usando la API gratuita de WeatherAPI.com. Además, guarda un historial básico de consultas durante la sesión.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- Consulta de coordenadas (latitud y longitud) a partir del nombre de una ciudad.
-- Integración con la API de OpenWeatherMap.
-- Lectura segura de claves API desde un archivo `.env`.
+- Consulta del clima actual por ciudad.
+- Integración con la API de WeatherAPI.com.
+- Lectura segura de la clave API desde un archivo `.env`.
 - Manejo de errores y mensajes claros al usuario.
-- Estructura modular y lista para escalar.
-- **[En desarrollo]**: Consulta de alertas meteorológicas.
+- Menú interactivo en línea de comandos.
+- Historial en memoria de consultas realizadas durante la sesión.
 
 ---
 
@@ -20,20 +20,20 @@ Una app de línea de comandos desarrollada en Python que permite consultar las c
 - Python 3.11
 - [requests](https://pypi.org/project/requests/)
 - [python-dotenv](https://pypi.org/project/python-dotenv/)
-- API de [OpenWeatherMap](https://openweathermap.org/api)
+- API de [WeatherAPI.com](https://www.weatherapi.com/)
 
 ---
 
 ## ⚙️ Cómo usarlo
 
-1. Cloná el repositorio:
+1. Clonar el repositorio:
 
 ```bash
 git clone https://github.com/harikirtandas/alerta-clima.git
 cd alerta-clima
 ```
 
-2. Activá un entorno virtual y instalá dependencias:
+2. Activar un entorno virtual y luego instalar dependencias:
 
 ```bash
 python3 -m venv venv
@@ -41,13 +41,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Creá un archivo .env en la raíz del proyecto y agregá tu API Key:
+3. Crear un archivo `.env` en la raíz del proyecto y agregar la API Key de WeatherAPI:
 
-```bash
-API_KEY=tu_clave_de_openweathermap
+```
+WEATHERAPI_KEY=tu_clave_api_aqui
 ```
 
-4. Ejecutá el script:
+4. Ejecutar el script principal:
 
 ```bash
 python main.py
@@ -60,21 +60,21 @@ python main.py
 ```plaintext
 alerta-clima/
 ├── main.py                 # Menú principal CLI
-├── clima_api.py            # Funciones para consultar coordenadas y alertas
-├── .env                    # (oculto) Clave de API
+├── clima_api.py            # Funciones para consultar clima usando WeatherAPI
+├── .env                    # (oculto) Clave API WeatherAPI
 ├── .gitignore              # Evita subir archivos sensibles
-├── data/
-│   └── historial_alertas.json  # Archivo para almacenar alertas (próximamente)
+├── data/                   # Carpeta para futuros archivos (historial, logs)
 ```
 
 ---
 
 ## 📝 Estado actual del proyecto
 
-✅ Módulo de geolocalización por ciudad  
-✅ Integración básica con API  
-❌ Alertas climáticas activas (en pausa por requerir suscripción adicional)  
-🔜 Historial de consultas y filtros por fecha/ciudad
+✅ Consulta de clima por ciudad con WeatherAPI  
+✅ Menú interactivo en consola  
+✅ Historial básico en memoria  
+🔜 Guardado persistente de historial  
+🔜 Funcionalidad de alertas meteorológicas (en desarrollo)
 
 ---
 
@@ -88,5 +88,3 @@ Proyecto en proceso de evolución como parte de mi camino para trabajar como Pyt
 ## 🧠 Licencia
 
 MIT
-
----
