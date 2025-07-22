@@ -10,9 +10,8 @@ def clima_actual_weatherapi(ciudad):
     url = f"http://api.weatherapi.com/v1/current.json?key={weatherapi_key}&q={ciudad}&aqi=no"
 
     try:
-        response = requests.get(url)
-        data = response.json()
-        # print(weatherapi_key) # línea de verificación
+        response = requests.get(url) # Solicitud http. Hace la petición a la url
+        data = response.json()       # convierte la respuesta JSON a un diccionario Python
         if "error" in data:
             return f"⚠️ Error: {data['error']['message']}"
 
